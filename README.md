@@ -53,14 +53,14 @@ myfunction "message"
 ```
 
 ```ksh
-echo "Status: ${statu_db}" | tee -a  $log
-if [ ! $statu_db = "0" ]
+echo "Status: ${status_db}" | tee -a  $log
+if [ ! $status_db = "0" ]
 then
-	rm -f $file_ctrl
+    rm -f $file_ctrl
     rm -f $log_sp
     logger "End with error $ksh_name !!!!"
-	echo >&2 "End with error!!!!, view log file"
-	exit 2   
+    echo >&2 "End with error!!!!, view log file"
+    exit 2   
 fi
 ```
 
