@@ -1,6 +1,6 @@
 # KSH demo
 
-KSH: type od command interpreters or "shells" in Unix/Linux SO
+KSH: type of command interpreters or "shells" in Unix/Linux SO
 
 ## Retalive path:
 
@@ -16,11 +16,11 @@ export ksh_name="ksh_demo"
 
 ## Variables
 
-Use variables ```${myvarible}``` or ```$myvarible````
+Use variables ```${myvarible}``` or ```$myvarible```
 
 ## Echo fila and console
 
-Echo console or file, and both: ```| tee $logfile````
+Echo console or file, and both: ```| tee $logfile```
 
 
 ## Tee command
@@ -44,8 +44,7 @@ myfunction "message"
 ```exit 1``` and ```echo >&2 "End with error!!!!, view log file"```
 
 
-## $# status
-
+## $? status
 ## sqlplus
 
 ```sql
@@ -53,6 +52,30 @@ myfunction "message"
     WHENEVER SQLERROR EXIT FAILURE --Error control
 ```
 
+```ksh
+echo "Status: ${statu_db}" | tee -a  $log
+if [ ! $statu_db = "0" ]
+then
+	rm -f $file_ctrl
+    rm -f $log_sp
+    logger "End with error $ksh_name !!!!"
+	echo >&2 "End with error!!!!, view log file"
+	exit 2   
+fi
+```
+
+## call ksh from ksh
+
+```ksh
+. ksh_demo_mzv.ksh "ksh_cstavg_demo" "epmm.cstavgsch('Xxxx')" 
+```
+
+Use parameters and set variables:
+
+```ksh
+export ksh_name=$1
+export sp_name=$2
+```
 
 
 
